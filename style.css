@@ -18,3 +18,27 @@ div.container {
 	align-items: center;
 	position: relative;
 }
+div.circle {
+	width: 130px;
+	height: 130px;
+	min-width: 20px;
+	min-height: 20px;
+	border-radius: 10px;
+	position: absolute;
+	z-index: 0;
+	filter: blur(10px);
+	background-color: #6be4e6;
+	box-shadow: 0px 0px 30px 30px #6be4e6;
+}
+.left {
+	left: 33%;
+}
+.right {
+	left: 58%;
+}
+.top {
+	top: 7%;
+}
+.bottom {
+	top: 73%;
+}
