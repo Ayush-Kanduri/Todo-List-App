@@ -52,9 +52,9 @@ div.app {
 	z-index: 2;
 	width: 27%;
 	max-width: 373.806px;
-	min-width: 300.806px;
-	height: 500px;
-	margin-top: 6%;
+	min-width: 307.806px;
+	height: 560px;
+	margin-top: 2%;
 	transition: all 0.2s linear;
 }
 div.app:hover {
@@ -122,6 +122,44 @@ div.app div.inputBox .submit i:hover {
 	color: #55fca0;
 	cursor: pointer;
 }
+div.tabs-box {
+	width: 100%;
+	height: 10px;
+	margin-top: 5%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border: none;
+}
+div.tabs-box > div.tabs {
+	width: 33%;
+	padding: 5%;
+	height: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: white;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-size: 0.9rem;
+	transition: all 0.1s linear;
+}
+div.tabs-box > div.tabs:hover {
+	background: rgba(255, 255, 255, 0.2);
+	cursor: pointer;
+}
+div.tabs-box > div.tabs.active {
+	color: lightgray;
+}
+/* hr {
+	height: 1px;
+	width: 90%;
+	border-style: solid;
+	border-color: white;
+	border-width: 1px;
+	margin-left: 5%;
+} */
+/* --------------------------------------------------------------- */
 footer {
 	background: transparent;
 	color: #fff;
