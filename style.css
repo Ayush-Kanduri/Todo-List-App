@@ -122,3 +122,22 @@ div.app div.inputBox .submit i:hover {
 	color: #55fca0;
 	cursor: pointer;
 }
+footer {
+	background: transparent;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	position: fixed;
+	padding: 7px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	word-spacing: 0.03rem;
+	letter-spacing: 0.1rem;
+	z-index: 1;
+	overflow: hidden;
+}
+footer strong {
+	color: red;
+}
