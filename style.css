@@ -42,3 +42,21 @@ div.circle {
 .bottom {
 	top: 73%;
 }
+div.app {
+	background: rgba(255, 255, 255, 0.3);
+	box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.3);
+	backdrop-filter: blur(7px);
+	-webkit-backdrop-filter: blur(7px);
+	border-radius: 20px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	z-index: 2;
+	width: 27%;
+	max-width: 373.806px;
+	min-width: 300.806px;
+	height: 500px;
+	margin-top: 6%;
+	transition: all 0.2s linear;
+}
+div.app:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
