@@ -71,3 +71,36 @@ div.app > div.banner {
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
 }
+div.app div.inputBox {
+	width: 100%;
+	height: 40px;
+	display: flex;
+}
+div.app div.inputBox input {
+	width: 85%;
+	background: transparent;
+	outline: none;
+	border: 1px solid #ececec;
+	padding: 5px;
+	padding-left: 16px;
+	font-size: 1.2rem;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	height: 40px;
+	display: flex;
+	border: none;
+}
+div.app div.inputBox input:focus {
+	outline: none;
+}
+div.app div.inputBox input::placeholder {
+	color: white;
+	text-shadow: 2px 2px 1px black;
+	text-align: center;
+	padding: 5px;
+	padding-left: 30px;
+	font-size: 1.15rem;
+	font-family: monospace;
+}
