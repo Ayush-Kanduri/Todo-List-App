@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap");
 * {
 	margin: 0%;
 	padding: 0%;
@@ -58,7 +59,7 @@ div.app {
 	transition: all 0.2s linear;
 }
 div.app:hover {
-	/* background: rgba(255, 255, 255, 0.2); */
+	background: rgba(255, 255, 255, 0.27);
 }
 div.app > div.banner {
 	width: 100%;
@@ -97,7 +98,7 @@ div.app div.inputBox input:focus {
 }
 div.app div.inputBox input::placeholder {
 	color: white;
-	text-shadow: 2px 2px 1px black;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 	text-align: center;
 	padding: 5px;
 	padding-left: 30px;
@@ -155,13 +156,71 @@ div.tabs-box > div.tabs.active {
 }
 .content {
 	width: 100%;
-	height: 200px;
 	display: flex;
 	flex-direction: column;
+	justify-content: start;
+	align-items: flex-start;
+	margin-top: 6%;
+	overflow-y: scroll;
+	height: 200px;
+}
+.scroll {
+	overflow: hidden;
+}
+.content::-webkit-scrollbar {
+	display: none;
+	overflow: hidden;
+}
+.tab2,
+.tab3 {
+	display: none;
+}
+.task {
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	transition: all 0.1s linear;
+}
+.task:hover {
+	background: rgba(0, 0, 0, 0.03);
+	cursor: pointer;
+}
+.task .checkbox,
+.task .edit,
+.task .delete {
+	width: 10%;
+	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: red;
-	margin-top: 5%;
+	transition: all 0.1s linear;
+	cursor: pointer;
+	font-size: 1.1rem;
+	color: rgba(0, 0, 0, 0.7);
+}
+.task .checkbox:hover,
+.task .edit:hover {
+	color: #afffd3;
+}
+.task .delete:hover {
+	color: red;
+}
+.task .text {
+	width: 70%;
+	overflow: hidden;
+	/* word-break: break-all; */
+	font-size: 0.95rem;
+	font-family: "Ubuntu", sans-serif;
+	word-spacing: 0.2rem;
+	letter-spacing: 0.001rem;
+	line-height: 1.3rem;
+	padding: 10px;
+	color: rgba(0, 0, 0, 0.75);
+}
+/* --------------------------------------------------------------- */
+div.taskBar {
+	color: rgb(255, 255, 255);
 }
 div.taskBar > div.tabs:hover {
 	background: none;
