@@ -159,6 +159,127 @@
 					<div class="tabs">Clear Completed</div>
 				</div>
 			</div>
+			<div class="editModal hide">
+				<table>
+					<form action="">
+						<tr>
+							<td>
+								<label for="" id="text-label">Title</label>
+							</td>
+							<td>
+								<input type="text" name="text" id="text" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="" id="textarea-label">Description</label>
+							</td>
+							<td>
+								<textarea
+									name="textarea"
+									id="textarea"
+									cols="20"
+									rows="2"
+								></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="" id="date-label">Reminder</label>
+							</td>
+							<td>
+								<input type="date" name="date" id="date" /><br />
+								<input type="time" name="time" id="time" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="" id="priority-label">Priority</label>
+							</td>
+							<td>
+								<fieldset id="priority">
+									<div class="flex-row">
+										<label for="" id="low-label">Low</label>
+										<input
+											type="radio"
+											name="priority"
+											id="low"
+											value="low"
+										/>
+									</div>
+									<div class="flex-row">
+										<label for="" id="medium-label">Medium</label>
+										<input
+											type="radio"
+											name="priority"
+											id="medium"
+											value="medium"
+										/>
+									</div>
+									<div class="flex-row">
+										<label for="" id="high-label">High</label>
+										<input
+											type="radio"
+											name="priority"
+											id="high"
+											value="high"
+										/>
+									</div>
+								</fieldset>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="" id="repeat-label">Repeat</label>
+							</td>
+							<td>
+								<fieldset id="repeat">
+									<div class="flex-row">
+										<label for="" id="day-label">Every Day</label>
+										<input
+											type="radio"
+											name="repeat"
+											id="day"
+											value="day"
+										/>
+									</div>
+									<div class="flex-row">
+										<label for="" id="week-label">Every Week</label>
+										<input
+											type="radio"
+											name="repeat"
+											id="week"
+											value="week"
+										/>
+									</div>
+									<div class="flex-row">
+										<label for="" id="month-label">Every Month</label>
+										<input
+											type="radio"
+											name="repeat"
+											id="month"
+											value="month"
+										/>
+									</div>
+									<div class="flex-row">
+										<label for="" id="year-label">Every Year</label>
+										<input
+											type="radio"
+											name="repeat"
+											id="year"
+											value="year"
+										/>
+									</div>
+								</fieldset>
+							</td>
+						</tr>
+					</form>
+				</table>
+				<div id="buttons">
+					<button id="cancel">Cancel</button>
+					<button id="save">Save</button>
+				</div>
+			</div>
 			<footer>
 				<p>Made with <strong>&#10084;</strong> in INDIA</p>
 				<p>

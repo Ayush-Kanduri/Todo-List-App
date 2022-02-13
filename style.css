@@ -346,3 +346,143 @@ footer {
 footer strong {
 	color: red;
 }
+/* --------------------------------------------------------------- */
+.editModal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 27%;
+	max-width: 373.806px;
+	min-width: 307.806px;
+	height: fit-content;
+	background-color: rgba(255, 255, 255, 0.9);
+	box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.5);
+	z-index: 6;
+	animation-name: popIn;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-direction: normal;
+	/* animation-direction: reverse; */
+	padding: 2%;
+}
+.editModal table {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5%;
+	border: 1px solid #ececec;
+}
+.editModal table input#time {
+	margin-top: 5%;
+}
+.editModal table label#text-label,
+.editModal table label#textarea-label,
+.editModal table label#date-label,
+.editModal table label#priority-label,
+.editModal table label#repeat-label {
+	font-size: 1.3rem;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.editModal table input,
+.editModal table textarea {
+	margin-left: 5%;
+	margin-top: 5%;
+	outline: none;
+	border: none;
+	background: none;
+}
+.editModal table textarea,
+.editModal table input[type="text"] {
+	border-bottom: 1px solid black;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-size: 1.1rem;
+	padding-left: 2%;
+	padding-bottom: 3%;
+	color: maroon;
+}
+.editModal table input:focus,
+.editModal table textarea:focus {
+	outline: none;
+}
+.editModal table fieldset#priority {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: flex-start;
+	padding: 7%;
+	border: none;
+}
+.flex-row {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	margin-top: 3%;
+	width: 100%;
+}
+.editModal table fieldset#repeat {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: flex-start;
+	padding: 7%;
+	border: none;
+	width: 100%;
+}
+@keyframes popIn {
+	0% {
+		transform: translate(-50%, -50%) scale(0);
+		opacity: 0;
+	}
+	100% {
+		transform: translate(-50%, -50%) scale(1);
+		opacity: 1;
+	}
+}
+@keyframes popOut {
+	0% {
+		transform: translate(-50%, -50%) scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: translate(-50%, -50%) scale(0);
+		opacity: 0;
+	}
+}
+.editModal div#buttons {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.editModal div#buttons button {
+	padding: 1.3em 3em;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: 500;
+	color: #000;
+	background-color: #fff;
+	border: none;
+	border-radius: 45px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+}
+.editModal div#buttons button:hover {
+	background-color: #2ee59d;
+	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+}
+.editModal div#buttons button:active {
+	transform: translateY(-1px);
+}
+.editModal div#buttons button#cancel:hover {
+	background-color: #f75757;
+	box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
+}
+.hide {
+	display: none;
+}
