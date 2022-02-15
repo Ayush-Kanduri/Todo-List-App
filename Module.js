@@ -18,6 +18,25 @@ let todoApp = (() => {
 	let taskItemTemplate = allTabContent.querySelector(".task").cloneNode(true);
 	taskItemTemplate.style.display = "flex";
 	//----------------------------------------------------------------
+	//Function: Renders the Task List//
+	let renderTaskList = (taskList) => {
+		if (taskList.length > 0) {
+			//Un-Highlights all the Tabs
+			upperTabs.forEach((element) => element.classList.remove("active"));
+			//Highlights the "All" Tab
+			upperTabs[0].classList.add("active");
+			//Removes the Content from the DOM Screen
+			deleteTasksFromDOM();
+			//Adds the Content from the Task List into the DOM Screen
+			taskList.forEach((task) => {
+				addTaskToDOM(task);
+			});
+			//Displays the Number of Tasks Left in the DOM Screen
+			taskCount(taskList);
+			return;
+		}
+	};
+	//----------------------------------------------------------------
 	//Function: Adds the Task into the Task List//
 	let addTask = (task) => {
 		if (task) {
