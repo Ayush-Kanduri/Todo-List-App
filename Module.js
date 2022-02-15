@@ -17,6 +17,19 @@ let todoApp = (() => {
 		document.querySelectorAll(".scroll > .content")[2];
 	let taskItemTemplate = allTabContent.querySelector(".task").cloneNode(true);
 	taskItemTemplate.style.display = "flex";
+
+	//----------------------------------------------------------------
+	//Function: Handles the KeyPress Events in the Todo List App//
+	let handleKeyPress = (event) => {
+		//Event.keyCode = 13 for "Enter" key
+		if (event.key === "Enter") {
+			const activeElement = document.activeElement;
+			if (inputTask === activeElement) {
+				//Calls the Click Event Listener on the Submit Task Button when the Enter Key is Pressed & the Focus is on the Input Task Element.
+				submitTask.click();
+			}
+		}
+	};
 	//----------------------------------------------------------------
 	//Function: Handles the Click Events in the Todo List App//
 	let handleClick = (event) => {
