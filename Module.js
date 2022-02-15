@@ -1,6 +1,7 @@
 //Revealing Module Pattern using IIFE Module Design Pattern.
 //----------------------------------------------------------------
 let todoApp = (() => {
+	//Declarations//
 	let taskList = [];
 	const inputTask = document.getElementById("task");
 	const submitTask = document.getElementById("taskSubmit");
@@ -91,6 +92,7 @@ let todoApp = (() => {
 		const target = event.target;
 		//If the target is the submit button, then add the task to the list
 		if (target.id === "taskSubmit") {
+			//Optional Chaining Operator
 			const taskTitle = inputTask?.value;
 			if (taskTitle === "") return;
 			let task = new Task(taskTitle);
