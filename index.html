@@ -15,6 +15,8 @@
 			src="https://kit.fontawesome.com/34162fcf4d.js"
 			crossorigin="anonymous"
 		></script>
+		<script defer src="Task.js"></script>
+		<script defer src="Module.js"></script>
 		<script defer src="Script.js"></script>
 	</head>
 	<body>
@@ -40,12 +42,12 @@
 						placeholder="Hi! What's the Task?"
 					/>
 					<div class="submit">
-						<i class="fa-solid fa-circle-check"></i>
+						<i class="fa-solid fa-circle-check" id="taskSubmit"></i>
 					</div>
 				</div>
 				<div class="tabs-box">
-					<div class="tabs active">All</div>
-					<div class="tabs">Incomplete</div>
+					<div class="tabs">All</div>
+					<div class="tabs active">Incomplete</div>
 					<div class="tabs">Completed</div>
 				</div>
 				<div class="scroll">
@@ -55,92 +57,7 @@
 								<i class="fa-solid fa-circle-check"></i>
 							</div>
 							<div class="text">
-								<p>Buy Milk + Groceries + Stationary</p>
-							</div>
-							<div class="edit">
-								<i class="fa-solid fa-pen-to-square"></i>
-							</div>
-							<div class="delete">
-								<i class="fa-solid fa-trash-alt"></i>
-							</div>
-						</div>
-						<div class="task">
-							<div class="checkbox">
-								<i class="fa-solid fa-circle-check"></i>
-							</div>
-							<div class="text">
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing
-									elit.sdfsdfsdfsdfsdfsdfsdfsdfsdf
-								</p>
-							</div>
-							<div class="edit">
-								<i class="fa-solid fa-pen-to-square"></i>
-							</div>
-							<div class="delete">
-								<i class="fa-solid fa-trash-alt"></i>
-							</div>
-						</div>
-						<div class="task">
-							<div class="checkbox">
-								<i class="fa-solid fa-circle-check"></i>
-							</div>
-							<div class="text">
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing
-									elit.sdfsdfsdfsdfsdfsdfsdfsdfsdf
-								</p>
-							</div>
-							<div class="edit">
-								<i class="fa-solid fa-pen-to-square"></i>
-							</div>
-							<div class="delete">
-								<i class="fa-solid fa-trash-alt"></i>
-							</div>
-						</div>
-						<div class="task">
-							<div class="checkbox">
-								<i class="fa-solid fa-circle-check"></i>
-							</div>
-							<div class="text">
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing
-									elit.sdfsdfsdfsdfsdfsdfsdfsdfsdf
-								</p>
-							</div>
-							<div class="edit">
-								<i class="fa-solid fa-pen-to-square"></i>
-							</div>
-							<div class="delete">
-								<i class="fa-solid fa-trash-alt"></i>
-							</div>
-						</div>
-						<div class="task">
-							<div class="checkbox">
-								<i class="fa-solid fa-circle-check"></i>
-							</div>
-							<div class="text">
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing
-									elit.sdfsdfsdfsdfsdfsdfsdfsdfsdf
-								</p>
-							</div>
-							<div class="edit">
-								<i class="fa-solid fa-pen-to-square"></i>
-							</div>
-							<div class="delete">
-								<i class="fa-solid fa-trash-alt"></i>
-							</div>
-						</div>
-						<div class="task">
-							<div class="checkbox">
-								<i class="fa-solid fa-circle-check"></i>
-							</div>
-							<div class="text">
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing
-									elit.sdfsdfsdfsdfsdfsdfsdfsdfsdf
-								</p>
+								<p></p>
 							</div>
 							<div class="edit">
 								<i class="fa-solid fa-pen-to-square"></i>
@@ -155,7 +72,7 @@
 				</div>
 				<div class="taskBar tabs-box">
 					<div class="tabs">Complete All Tasks</div>
-					<div class="tabs" id="taskCount">10 Tasks Left</div>
+					<div class="tabs" id="taskCount">0 Tasks Left</div>
 					<div class="tabs">Clear Completed</div>
 				</div>
 			</div>
