@@ -37,6 +37,18 @@ let todoApp = (() => {
 		}
 	};
 	//----------------------------------------------------------------
+	//Function: Deletes the Tasks from the DOM Screen//
+	let deleteTasksFromDOM = (task) => {
+		//Tabs Array containing all the Content from all the Tabs Combined in the DOM Screen
+		const tabs = [
+			...allTabContent.querySelectorAll("div.task"),
+			...incompleteTabContent.querySelectorAll("div.task"),
+			...completedTabContent.querySelectorAll("div.task"),
+		];
+		//Removes the Content from the DOM Screen
+		tabs.forEach((element) => element.remove());
+	};
+	//----------------------------------------------------------------
 	//Function: Adds the Task into the Task List//
 	let addTask = (task) => {
 		if (task) {
