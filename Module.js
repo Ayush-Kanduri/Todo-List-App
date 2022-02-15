@@ -17,7 +17,12 @@ let todoApp = (() => {
 		document.querySelectorAll(".scroll > .content")[2];
 	let taskItemTemplate = allTabContent.querySelector(".task").cloneNode(true);
 	taskItemTemplate.style.display = "flex";
-
+	//----------------------------------------------------------------
+	//Function: Displays the Number of Tasks Left in the DOM Screen//
+	let taskCount = (taskList) => {
+		const count = taskList.filter((task) => task.completed === false).length;
+		lowerTabs[1].textContent = `${count} Tasks Left`;
+	};
 	//----------------------------------------------------------------
 	//Function: Adds the Task into the DOM Screen//
 	let addTaskToDOM = (task) => {
