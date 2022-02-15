@@ -17,7 +17,15 @@ let todoApp = (() => {
 		document.querySelectorAll(".scroll > .content")[2];
 	let taskItemTemplate = allTabContent.querySelector(".task").cloneNode(true);
 	taskItemTemplate.style.display = "flex";
-
+	//----------------------------------------------------------------
+	//Function: Adds the Task into the Task List//
+	let addTask = (task) => {
+		if (task) {
+			taskList.push(task);
+			renderTaskList(taskList);
+			return;
+		}
+	};
 	//----------------------------------------------------------------
 	//Function: Handles the KeyPress Events in the Todo List App//
 	let handleKeyPress = (event) => {
