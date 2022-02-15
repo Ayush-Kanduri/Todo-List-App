@@ -17,6 +17,28 @@ let todoApp = (() => {
 		document.querySelectorAll(".scroll > .content")[2];
 	let taskItemTemplate = allTabContent.querySelector(".task").cloneNode(true);
 	taskItemTemplate.style.display = "flex";
+
+	//----------------------------------------------------------------
+	//Function: Adds the Task into the DOM Screen//
+	let addTaskToDOM = (task) => {
+		//Adds the Content to the DOM
+		taskItemTemplate.querySelector(".text p").textContent = task.taskTitle;
+		allTabContent.appendChild(taskItemTemplate);
+		//Clones the Task Item Template Node
+		taskItemTemplate = taskItemTemplate.cloneNode(true);
+	};
+	//----------------------------------------------------------------
+	//Function: Deletes the Tasks from the DOM Screen//
+	let deleteTasksFromDOM = (task) => {
+		//Tabs Array containing all the Content from all the Tabs Combined in the DOM Screen
+		const tabs = [
+			...allTabContent.querySelectorAll("div.task"),
+			...incompleteTabContent.querySelectorAll("div.task"),
+			...completedTabContent.querySelectorAll("div.task"),
+		];
+		//Removes the Content from the DOM Screen
+		tabs.forEach((element) => element.remove());
+	};
 	//----------------------------------------------------------------
 	//Function: Renders the Task List//
 	let renderTaskList = (taskList) => {
@@ -35,18 +57,6 @@ let todoApp = (() => {
 			taskCount(taskList);
 			return;
 		}
-	};
-	//----------------------------------------------------------------
-	//Function: Deletes the Tasks from the DOM Screen//
-	let deleteTasksFromDOM = (task) => {
-		//Tabs Array containing all the Content from all the Tabs Combined in the DOM Screen
-		const tabs = [
-			...allTabContent.querySelectorAll("div.task"),
-			...incompleteTabContent.querySelectorAll("div.task"),
-			...completedTabContent.querySelectorAll("div.task"),
-		];
-		//Removes the Content from the DOM Screen
-		tabs.forEach((element) => element.remove());
 	};
 	//----------------------------------------------------------------
 	//Function: Adds the Task into the Task List//
