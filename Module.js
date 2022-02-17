@@ -1,7 +1,6 @@
 //Revealing Module Pattern using IIFE Module Design Pattern.
 //----------------------------------------------------------------
 let todoApp = (() => {
-	//Declarations//
 	let taskList = [];
 	const inputTask = document.getElementById("task");
 	const submitTask = document.getElementById("taskSubmit");
@@ -29,6 +28,7 @@ let todoApp = (() => {
 	let addTaskToDOM = (task) => {
 		//Adds the Content to the DOM
 		taskItemTemplate.querySelector(".text p").textContent = task.taskTitle;
+		taskItemTemplate.querySelector(".text p").id = task.id;
 		allTabContent.appendChild(taskItemTemplate);
 		//Clones the Task Item Template Node
 		taskItemTemplate = taskItemTemplate.cloneNode(true);
@@ -62,6 +62,10 @@ let todoApp = (() => {
 			//Displays the Number of Tasks Left in the DOM Screen
 			taskCount(taskList);
 			return;
+		} else {
+			upperTabs[0].classList.remove("active");
+			upperTabs[1].classList.remove("active");
+			upperTabs[2].classList.remove("active");
 		}
 	};
 	//----------------------------------------------------------------
@@ -72,6 +76,26 @@ let todoApp = (() => {
 			renderTaskList(taskList);
 			return;
 		}
+	};
+	//----------------------------------------------------------------
+	// //Function: Adds the TaskList into the Browser Local Storage//
+	// let localStorage = (taskList) => {
+	// 	if (task) {
+	// 		taskList.push(task);
+	// 		renderTaskList(taskList);
+	// 		return;
+	// 	}
+	// };
+	//----------------------------------------------------------------
+	//Function: Checks/Unchecks Off the Task & Marks it as Completed/Incomplete//
+	let taskCompletedToggle = (taskId) => {
+		taskList.forEach((task) => {
+			if (task.id === Number(taskId)) {
+				task.completed = !task.completed;
+				return;
+			}
+		});
+		console.log(...taskList);
 	};
 	//----------------------------------------------------------------
 	//Function: Handles the KeyPress Events in the Todo List App//
@@ -99,6 +123,13 @@ let todoApp = (() => {
 			addTask(task);
 			inputTask.focus();
 			inputTask.value = "";
+		}
+		if (target.id === "check") {
+			const taskTitle =
+				target.parentNode.nextElementSibling.querySelector("p");
+			taskTitle.classList.toggle("line-through");
+			taskCompletedToggle(taskTitle.id);
+			return;
 		}
 	};
 	//----------------------------------------------------------------
