@@ -1,0 +1,30 @@
+/* --------------------------------590px-------------------------------- */
+@media only screen and (max-height: 590px) {
+	div.container {
+		min-height: 106vh;
+	}
+	div.app {
+		margin-top: 1%;
+	}
+}
+/* --------------------------------950px-------------------------------- */
+@media only screen and (max-width: 950px) {
+	.left {
+		left: 26%;
+		transition: all 0.5s ease;
+	}
+}
+/* --------------------------------720px-------------------------------- */
+@media only screen and (max-width: 720px) {
+	.left {
+		left: 20%;
+		transition: all 0.5s ease;
+	}
+}
+/* --------------------------------500px-------------------------------- */
+@media only screen and (max-width: 500px) {
+	.left {
+		left: 12%;
+		transition: all 0.5s ease;
+	}
+}
