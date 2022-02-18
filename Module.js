@@ -177,7 +177,7 @@ let todoApp = (() => {
 			taskCompletedToggle(ele.id);
 			return;
 		}
-		//If the target is the "All-Tabs" button, then display the Content of the Tab
+		//If the target is the "All-Tab" button, then display the Content of the Tab
 		if (target.id === "all") {
 			const taskList = getLocalStorage("taskList");
 			if (taskList.length > 0) {
@@ -186,7 +186,7 @@ let todoApp = (() => {
 				return;
 			}
 		}
-		//If the target is the "Incomplete-Tabs" button, then display the Content of the Tab
+		//If the target is the "Incomplete-Tab" button, then display the Content of the Tab
 		if (target.id === "incomplete") {
 			let taskList = getLocalStorage("taskList");
 			taskList = taskList.filter((task) => task.completed === false);
@@ -196,7 +196,7 @@ let todoApp = (() => {
 				return;
 			}
 		}
-		//If the target is the "Completed-Tabs" button, then display the Content of the Tab
+		//If the target is the "Completed-Tab" button, then display the Content of the Tab
 		if (target.id === "completed") {
 			let taskList = getLocalStorage("taskList");
 			taskList = taskList.filter((task) => task.completed === true);
@@ -206,14 +206,26 @@ let todoApp = (() => {
 				return;
 			}
 		}
-		// //If the target is the "delete" button, then delete that task
-		// if (target.id === "delete") {
-		// 	// const ele = target.parentNode.nextElementSibling.querySelector("p");
-		// 	// ele.classList.toggle("line-through");
-		// 	// taskCompletedToggle(ele.id);
-		// 	console.log("delete");
-		// 	return;
-		// }
+		//If the target is the "CompletedAll-Tab" button, then mark all the Tasks as Completed
+		if (target.id === "complete-all") {
+			let taskList = getLocalStorage("taskList");
+			if (taskList.length > 0) {
+				taskList.forEach((task) => {
+					task.completed = true;
+				});
+				setLocalStorage(taskList);
+				renderTaskList();
+				return;
+			}
+		}
+		//If the target is the "delete" button, then delete that task
+		if (target.id === "delete") {
+			// const ele = target.parentNode.nextElementSibling.querySelector("p");
+			// ele.classList.toggle("line-through");
+			// taskCompletedToggle(ele.id);
+			console.log("delete");
+			return;
+		}
 		// //If the target is the "edit" button, then edit that task
 		// if (target.id === "delete") {
 		// 	console.log("delete");
