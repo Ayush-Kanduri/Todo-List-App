@@ -9,7 +9,6 @@
 }
 body {
 	background-color: #24c6dc;
-	/* background-color: black; */
 }
 div.container {
 	width: 100vw;
@@ -43,7 +42,7 @@ div.circle {
 	left: 58%;
 }
 .top {
-	top: 1%;
+	top: 5%;
 }
 .bottom {
 	top: 73%;
@@ -107,7 +106,7 @@ div.app > div.banner:hover > div.hoverDisplay .fa-moon {
 #hide {
 	display: none;
 }
-div.app > div.banner .hoverDisplay #date,
+div.app > div.banner .hoverDisplay #today,
 div.app > div.banner .hoverDisplay #name {
 	position: absolute;
 	top: 85%;
@@ -119,7 +118,7 @@ div.app > div.banner .hoverDisplay #name {
 	word-spacing: 0.15rem;
 	display: none;
 }
-div.app > div.banner:hover > div.hoverDisplay #date {
+div.app > div.banner:hover > div.hoverDisplay #today {
 	animation: bottomToTop 0.5s linear;
 	display: block;
 }
@@ -321,6 +320,11 @@ div.tabs-box > div.tabs.active {
 	-moz-text-decoration-color: white;
 	-moz-text-decoration-thickness: 2px;
 }
+.delete-animation {
+	transform: translateY(8rem) rotateZ(20deg);
+	opacity: 0;
+	transition: all 1s linear;
+}
 /* --------------------------------------------------------------- */
 div.taskBar {
 	color: rgb(255, 255, 255);
@@ -368,12 +372,8 @@ footer strong {
 	background-color: rgba(255, 255, 255, 0.9);
 	box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.5);
 	z-index: 6;
-	animation-name: popIn;
-	animation-duration: 0.5s;
-	animation-timing-function: linear;
-	animation-direction: normal;
-	/* animation-direction: reverse; */
 	padding: 2%;
+	display: block;
 }
 .editModal table {
 	width: 100%;
@@ -494,4 +494,16 @@ footer strong {
 }
 .hide {
 	display: none;
+}
+.popIn {
+	animation-name: popIn;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-direction: normal;
+}
+.popOut {
+	animation-name: popOut;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-direction: normal;
 }

@@ -22,17 +22,17 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="circle left top"></div>
-			<div class="circle left bottom"></div>
-			<div class="circle right top"></div>
-			<div class="circle right bottom"></div>
+			<div class="circle left top" id="circle1"></div>
+			<div class="circle left bottom" id="circle2"></div>
+			<div class="circle right top" id="circle3"></div>
+			<div class="circle right bottom" id="circle4"></div>
 			<div class="app">
 				<div class="banner">
 					<div class="hoverDisplay">
 						<h3 id="name">Todo List App</h3>
 						<i class="fa-solid fa-sun"></i>
 						<i class="fa-solid fa-moon" id="hide"></i>
-						<h3 id="date">Monday, Oct 03</h3>
+						<h3 id="today">Monday, Oct 03</h3>
 					</div>
 				</div>
 				<div class="inputBox">
@@ -77,7 +77,7 @@
 					<div class="tabs" id="clear-completed">Clear Completed</div>
 				</div>
 			</div>
-			<div class="editModal hide">
+			<div class="editModal hide" id="modal">
 				<table>
 					<form action="">
 						<tr>
@@ -123,6 +123,7 @@
 											name="priority"
 											id="low"
 											value="low"
+											checked
 										/>
 									</div>
 									<div class="flex-row">
@@ -152,6 +153,16 @@
 							</td>
 							<td>
 								<fieldset id="repeat">
+									<div class="flex-row">
+										<label for="" id="never-label">Never</label>
+										<input
+											type="radio"
+											name="repeat"
+											id="never"
+											value="never"
+											checked
+										/>
+									</div>
 									<div class="flex-row">
 										<label for="" id="day-label">Every Day</label>
 										<input

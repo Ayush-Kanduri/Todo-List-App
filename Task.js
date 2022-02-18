@@ -3,15 +3,17 @@ class Task {
 		this.taskTitle = taskTitle;
 		this.id = Date.now();
 		this.completed = false;
-		this.description = "";
+		this.description = "Task Description";
 		this.reminder = {
-			date: "",
-			time: "",
+			date: new Date().toISOString().slice(0, 10),
+			// date: new Date().toLocaleDateString(),
+			time: new Date().toLocaleTimeString(),
+			// time: new Date().toISOString().slice(11, 16),
 			ON: false,
 		};
 		this.priority = "low";
 		this.repeat = {
-			when: "",
+			when: "never",
 			ON: false,
 		};
 	}
