@@ -1,4 +1,12 @@
+/* ----------------Google Fonts---------------- */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap");
+/* ----------------General Styling---------------- */
+:root {
+	--bgcolor: #24c6dc;
+	--circle-color: #6be4e6;
+	--app-bgcolor: rgba(255, 255, 255, 0.3);
+	--text-color: white;
+}
 * {
 	margin: 0%;
 	padding: 0%;
@@ -7,9 +15,11 @@
 	-webkit-user-drag: none;
 	-webkit-user-select: none;
 }
+/* ----------------Body---------------- */
 body {
-	background-color: #24c6dc;
+	background-color: var(--bgcolor);
 }
+/* ----------------Container---------------- */
 div.container {
 	width: 100vw;
 	height: 100vh;
@@ -23,6 +33,7 @@ div.container ::-webkit-scrollbar {
 	display: none;
 	overflow: hidden;
 }
+/* ----------------Background Circles---------------- */
 div.circle {
 	width: 130px;
 	height: 130px;
@@ -32,8 +43,8 @@ div.circle {
 	position: absolute;
 	z-index: 0;
 	filter: blur(10px);
-	background-color: #6be4e6;
-	box-shadow: 0px 0px 30px 30px #6be4e6;
+	background-color: var(--circle-color);
+	box-shadow: 0px 0px 30px 30px var(--circle-color);
 }
 .left {
 	left: 33%;
@@ -47,13 +58,14 @@ div.circle {
 .bottom {
 	top: 73%;
 }
+/* ----------------Application---------------- */
 div.app {
-	background: rgba(255, 255, 255, 0.3);
-	box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.3);
+	background: var(--app-bgcolor);
+	box-shadow: 0px 0px 10px 1px var(--app-bgcolor);
 	backdrop-filter: blur(7px);
 	-webkit-backdrop-filter: blur(7px);
 	border-radius: 20px;
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	border: 1px solid var(--app-bgcolor);
 	z-index: 2;
 	width: 27%;
 	max-width: 373.806px;
@@ -66,6 +78,7 @@ div.app {
 div.app:hover {
 	background: rgba(255, 255, 255, 0.27);
 }
+/* ----------------Application Banner---------------- */
 div.app > div.banner {
 	width: 100%;
 	height: 220px;
@@ -93,7 +106,7 @@ div.app > div.banner .hoverDisplay .fa-moon {
 	position: absolute;
 	top: 7%;
 	left: 87%;
-	color: white;
+	color: var(--text-color);
 	text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
 	cursor: pointer;
 	display: none;
@@ -112,7 +125,7 @@ div.app > div.banner .hoverDisplay #name {
 	top: 85%;
 	left: 4%;
 	font-size: 1.3rem;
-	color: white;
+	color: var(--text-color);
 	text-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
 	font-family: "Ubuntu", sans-serif;
 	word-spacing: 0.15rem;
@@ -122,6 +135,7 @@ div.app > div.banner:hover > div.hoverDisplay #today {
 	animation: bottomToTop 0.5s linear;
 	display: block;
 }
+/* ----------------Animation---------------- */
 @keyframes bottomToTop {
 	0% {
 		transform: translateY(50px);
@@ -135,6 +149,7 @@ div.app > div.banner:hover > div.hoverDisplay #today {
 		transform: translateY(0px);
 	}
 }
+/* ----------------Hover Display---------------- */
 div.app > div.banner .hoverDisplay #name {
 	top: 5%;
 	font-size: 2rem;
@@ -143,6 +158,7 @@ div.app > div.banner:hover > div.hoverDisplay #name {
 	animation: topToBottom 0.5s linear;
 	display: block;
 }
+/* ----------------Animation---------------- */
 @keyframes topToBottom {
 	0% {
 		transform: translateY(-50px);
@@ -153,6 +169,7 @@ div.app > div.banner:hover > div.hoverDisplay #name {
 		transform: translateY(0px);
 	}
 }
+/* ----------------Input Task Box Container---------------- */
 div.app div.inputBox {
 	width: 100%;
 	height: 40px;
@@ -178,7 +195,7 @@ div.app div.inputBox input:focus {
 	outline: none;
 }
 div.app div.inputBox input::placeholder {
-	color: white;
+	color: var(--text-color);
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 	text-align: center;
 	padding: 5px;
@@ -204,6 +221,7 @@ div.app div.inputBox .submit i:hover {
 	color: #55fca0;
 	cursor: pointer;
 }
+/* ----------------Tabs Container---------------- */
 div.tabs-box {
 	width: 100%;
 	height: 10px;
@@ -221,7 +239,7 @@ div.tabs-box > div.tabs {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	color: white;
+	color: var(--text-color);
 	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 	font-size: 0.9rem;
 	transition: all 0.1s linear;
@@ -235,6 +253,7 @@ div.tabs-box > div.tabs.active {
 	cursor: initial;
 	background: rgba(0, 0, 0, 0.04);
 }
+/* ----------------Tabs Content Container---------------- */
 .content {
 	width: 100%;
 	display: flex;
@@ -252,6 +271,7 @@ div.tabs-box > div.tabs.active {
 	display: none;
 	overflow: hidden;
 }
+/* ----------------Tab 1, Tab 2, Tab 3---------------- */
 .tab1 {
 	animation: fade 0.6s linear;
 }
@@ -260,6 +280,7 @@ div.tabs-box > div.tabs.active {
 	display: none;
 	animation: fade 0.6s linear;
 }
+/* ----------------Animation---------------- */
 @keyframes fade {
 	0% {
 		opacity: 0;
@@ -268,6 +289,7 @@ div.tabs-box > div.tabs.active {
 		opacity: 1;
 	}
 }
+/* ----------------Task Template---------------- */
 .task {
 	width: 100%;
 	height: fit-content;
@@ -313,21 +335,23 @@ div.tabs-box > div.tabs.active {
 	padding: 10px;
 	color: rgba(0, 0, 0, 0.75);
 }
+/* ----------------Line Through Class---------------- */
 .line-through {
 	text-decoration: line-through;
-	text-decoration-color: white;
+	text-decoration-color: var(--text-color);
 	text-decoration-thickness: 2px;
-	-moz-text-decoration-color: white;
+	-moz-text-decoration-color: var(--text-color);
 	-moz-text-decoration-thickness: 2px;
 }
+/* ----------------Delete Animation---------------- */
 .delete-animation {
 	transform: translateY(8rem) rotateZ(20deg);
 	opacity: 0;
 	transition: all 1s linear;
 }
-/* --------------------------------------------------------------- */
+/* ----------------Lower Tabs---------------- */
 div.taskBar {
-	color: rgb(255, 255, 255);
+	color: var(--text-color);
 }
 div.taskBar > div.tabs:hover {
 	background: none;
@@ -336,12 +360,12 @@ div.taskBar > div.tabs:hover {
 }
 #taskCount:hover {
 	cursor: initial;
-	color: white;
+	color: var(--text-color);
 }
-/* --------------------------------------------------------------- */
+/* ----------------Footer---------------- */
 footer {
 	background: transparent;
-	color: #fff;
+	color: var(--text-color);
 	font-size: 12px;
 	text-align: center;
 	position: fixed;
@@ -359,7 +383,7 @@ footer {
 footer strong {
 	color: red;
 }
-/* --------------------------------------------------------------- */
+/* ----------------Edit Modal---------------- */
 .editModal {
 	position: absolute;
 	top: 50%;
@@ -383,7 +407,8 @@ footer strong {
 	padding: 5%;
 	border: 1px solid #ececec;
 }
-.editModal table input#time {
+.editModal table input#time,
+.editModal table input#date {
 	margin-top: 5%;
 }
 .editModal table label#text-label,
@@ -397,10 +422,12 @@ footer strong {
 .editModal table input,
 .editModal table textarea {
 	margin-left: 5%;
-	margin-top: 5%;
 	outline: none;
 	border: none;
 	background: none;
+}
+.editModal table textarea {
+	margin-top: 5%;
 }
 .editModal table textarea,
 .editModal table input[type="text"] {
@@ -439,6 +466,7 @@ footer strong {
 	border: none;
 	width: 100%;
 }
+/* ----------------Animation---------------- */
 @keyframes popIn {
 	0% {
 		transform: translate(-50%, -50%) scale(0);
@@ -459,6 +487,7 @@ footer strong {
 		opacity: 0;
 	}
 }
+/* ----------------Modal Buttons---------------- */
 .editModal div#buttons {
 	display: flex;
 	justify-content: space-around;
@@ -471,7 +500,7 @@ footer strong {
 	letter-spacing: 2.5px;
 	font-weight: 500;
 	color: #000;
-	background-color: #fff;
+	background-color: var(--text-color);
 	border: none;
 	border-radius: 45px;
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -482,7 +511,7 @@ footer strong {
 .editModal div#buttons button:hover {
 	background-color: #2ee59d;
 	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-	color: #fff;
+	color: var(--text-color);
 	transform: translateY(-7px);
 }
 .editModal div#buttons button:active {
@@ -492,9 +521,11 @@ footer strong {
 	background-color: #f75757;
 	box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
 }
+/* ----------------Hide Class---------------- */
 .hide {
 	display: none;
 }
+/* ----------------Animation Classes---------------- */
 .popIn {
 	animation-name: popIn;
 	animation-duration: 0.5s;

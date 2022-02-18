@@ -1,6 +1,7 @@
 //Revealing Module Pattern using IIFE Module Design Pattern.
 //----------------------------------------------------------------
 let todoApp = (() => {
+	//Declarations
 	let tempId;
 	const inputTask = document.getElementById("task");
 	const submitTask = document.getElementById("taskSubmit");
@@ -106,7 +107,6 @@ let todoApp = (() => {
 				return;
 			}
 		} else {
-			console.log("No Tasks to Render");
 			upperTabs[0].classList.remove("active");
 			upperTabs[1].classList.remove("active");
 			upperTabs[2].classList.remove("active");
@@ -174,13 +174,12 @@ let todoApp = (() => {
 	//Function: Handles the Click Events in the Todo List App//
 	const handleClick = (event) => {
 		const target = event.target;
-		console.log(target.className);
 		//If the target is the "submit" button, then add the task to the list
 		if (target.id === "taskSubmit") {
 			//Optional Chaining Operator
 			const taskTitle = inputTask?.value;
 			if (taskTitle === "") return;
-			//Sets All Tab as Active in Local Storage
+			//Sets "All" Tab as Active in Local Storage
 			localStorage.setItem("active", "all");
 			addTask(taskTitle);
 			inputTask.focus();
@@ -241,7 +240,6 @@ let todoApp = (() => {
 		if (target.id === "clear-completed") {
 			let taskList = getLocalStorage("taskList");
 			taskList = taskList.filter((task) => task.completed === false);
-			console.log(taskList.length);
 			if (taskList.length > 0) {
 				setLocalStorage(taskList);
 			} else {
@@ -254,8 +252,8 @@ let todoApp = (() => {
 		if (target.id === "delete") {
 			const ele = target.parentNode.parentNode;
 			const id = ele.querySelector(".text p").id;
-			console.log(id);
 			ele.classList.add("delete-animation");
+			//SetTimeout to delete the Task after sometime after the delete animation is completed
 			setTimeout(() => {
 				const ele = target.parentNode.parentNode;
 				const id = ele.querySelector(".text p").id;
@@ -267,6 +265,7 @@ let todoApp = (() => {
 					return;
 				}
 				let list = taskList.filter((task) => task.id !== Number(id));
+				//Remove the element after the animation is completed
 				ele.addEventListener("transitionend", () => {
 					ele.remove();
 				});
@@ -283,8 +282,10 @@ let todoApp = (() => {
 				(task) => task.id === Number(taskEle.id)
 			);
 			const modal = document.getElementById("modal");
+			//Modal Animation
 			modal.classList.remove("hide");
 			modal.classList.add("popIn");
+			//Default Values of Input Text Field of Modal
 			document.querySelector("#modal input[type='text']").value =
 				task.taskTitle;
 			document.querySelector("#modal #textarea").value = task.description;
@@ -298,8 +299,10 @@ let todoApp = (() => {
 		//If the target is the "cancel" button of Modal then exit that Modal
 		if (target.id === "cancel") {
 			const modal = document.getElementById("modal");
+			//Modal Animation
 			modal.classList.remove("popIn");
 			modal.classList.add("popOut");
+			//SetTimeout to hide the Modal after sometime after the animation is completed
 			setTimeout(() => {
 				modal.classList.remove("popOut");
 				modal.classList.add("hide");
@@ -332,8 +335,10 @@ let todoApp = (() => {
 			});
 			setLocalStorage(taskList);
 			const modal = document.getElementById("modal");
+			//Modal Animation
 			modal.classList.remove("popIn");
 			modal.classList.add("popOut");
+			//SetTimeout to hide the Modal after sometime after the animation is completed
 			setTimeout(() => {
 				modal.classList.remove("popOut");
 				modal.classList.add("hide");
@@ -343,8 +348,10 @@ let todoApp = (() => {
 		}
 		//If the target is the "Sun" Icon of the Banner then Toggle the Theme
 		if (target.className === "fa-solid fa-sun") {
+			//Moonrise
 			document.querySelector(".hoverDisplay .fa-moon").id = "";
 			document.querySelector(".hoverDisplay .fa-sun").id = "hide";
+			//Theme Change
 			document.body.style.backgroundColor = "black";
 			for (let i = 1; i <= 4; i++) {
 				document.getElementById(`circle${i}`).style.backgroundColor =
@@ -356,8 +363,10 @@ let todoApp = (() => {
 		}
 		//If the target is the "Moon" Icon of the Banner then Toggle the Theme
 		if (target.className === "fa-solid fa-moon") {
+			//Sunrise
 			document.querySelector(".hoverDisplay .fa-sun").id = "";
 			document.querySelector(".hoverDisplay .fa-moon").id = "hide";
+			//Theme Change
 			document.body.style.backgroundColor = "#24c6dc";
 			for (let i = 1; i <= 4; i++) {
 				document.getElementById(`circle${i}`).style.backgroundColor =

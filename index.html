@@ -21,12 +21,17 @@
 		<script defer src="Script.js"></script>
 	</head>
 	<body>
+		<!-- Container Start -->
 		<div class="container">
+			<!-- Background Circles Start -->
 			<div class="circle left top" id="circle1"></div>
 			<div class="circle left bottom" id="circle2"></div>
 			<div class="circle right top" id="circle3"></div>
 			<div class="circle right bottom" id="circle4"></div>
+			<!-- Background Circles End -->
+			<!-- Application Start -->
 			<div class="app">
+				<!-- Banner Start -->
 				<div class="banner">
 					<div class="hoverDisplay">
 						<h3 id="name">Todo List App</h3>
@@ -35,6 +40,8 @@
 						<h3 id="today">Monday, Oct 03</h3>
 					</div>
 				</div>
+				<!-- Banner End -->
+				<!-- Todo App Input Start -->
 				<div class="inputBox">
 					<input
 						type="text"
@@ -46,12 +53,16 @@
 						<i class="fa-solid fa-circle-check" id="taskSubmit"></i>
 					</div>
 				</div>
+				<!-- Todo App Input End -->
+				<!-- Upper Tabs Start -->
 				<div class="tabs-box">
 					<div class="tabs" id="all">All</div>
 					<div class="tabs" id="incomplete">Incomplete</div>
 					<div class="tabs" id="completed">Completed</div>
 				</div>
+				<!-- Upper Tabs End -->
 				<div class="scroll">
+					<!-- Tab Content Template Start -->
 					<div class="tab1 content">
 						<div class="task">
 							<div class="checkbox">
@@ -68,27 +79,37 @@
 							</div>
 						</div>
 					</div>
+					<!-- Tab Content Template End -->
+					<!-- Tabs 2 3 Content Start -->
 					<div class="tab2 content"></div>
 					<div class="tab3 content"></div>
+					<!-- Tabs 2 3 Content End -->
 				</div>
+				<!-- Lower Tabs Start -->
 				<div class="taskBar tabs-box">
 					<div class="tabs" id="complete-all">Complete All Tasks</div>
 					<div class="tabs" id="taskCount">0 Tasks Left</div>
 					<div class="tabs" id="clear-completed">Clear Completed</div>
 				</div>
+				<!-- Lower Tabs End -->
 			</div>
+			<!-- Application End -->
+			<!-- Modal Start -->
 			<div class="editModal hide" id="modal">
 				<table>
 					<form action="">
 						<tr>
+							<!-- Title Start -->
 							<td>
 								<label for="" id="text-label">Title</label>
 							</td>
 							<td>
 								<input type="text" name="text" id="text" />
 							</td>
+							<!-- Title End -->
 						</tr>
 						<tr>
+							<!-- Description Start -->
 							<td>
 								<label for="" id="textarea-label">Description</label>
 							</td>
@@ -100,8 +121,10 @@
 									rows="2"
 								></textarea>
 							</td>
+							<!-- Description End -->
 						</tr>
 						<tr>
+							<!-- Reminder Start -->
 							<td>
 								<label for="" id="date-label">Reminder</label>
 							</td>
@@ -109,8 +132,10 @@
 								<input type="date" name="date" id="date" /><br />
 								<input type="time" name="time" id="time" />
 							</td>
+							<!-- Reminder End -->
 						</tr>
 						<tr>
+							<!-- Priority Start -->
 							<td>
 								<label for="" id="priority-label">Priority</label>
 							</td>
@@ -146,8 +171,10 @@
 									</div>
 								</fieldset>
 							</td>
+							<!-- Priority End -->
 						</tr>
 						<tr>
+							<!-- Repeat Start -->
 							<td>
 								<label for="" id="repeat-label">Repeat</label>
 							</td>
@@ -201,20 +228,27 @@
 									</div>
 								</fieldset>
 							</td>
+							<!-- Repeat End -->
 						</tr>
 					</form>
 				</table>
+				<!-- Modal Buttons Start -->
 				<div id="buttons">
 					<button id="cancel">Cancel</button>
 					<button id="save">Save</button>
 				</div>
+				<!-- Modal Buttons End -->
 			</div>
+			<!-- Modal End -->
+			<!-- Footer Start -->
 			<footer>
 				<p>Made with <strong>&#10084;</strong> in INDIA</p>
 				<p>
 					Credits: Favicon - "Icon made by Freepik from www.flaticon.com"
 				</p>
 			</footer>
+			<!-- Footer End -->
 		</div>
+		<!-- Container End -->
 	</body>
 </html>
