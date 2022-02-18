@@ -56,18 +56,16 @@ let todoApp = (() => {
 		tabs.forEach((element) => element.remove());
 	};
 	//----------------------------------------------------------------
-	//Function: Renders the All Tab//
-	let renderAllTab = (taskList) => {
-		//Highlights the "All" Tab
-		upperTabs[0].classList.add("active");
-		//Adds the Content from the Local Storage Task List into the DOM Screen
+	//Function: Renders the Tab Content//
+	let renderTabContent = (taskList) => {
+		//Adds the Tab Content from the Local Storage Task List into the DOM Screen
 		taskList.forEach((task) => addTaskToDOM(task));
 	};
 	//----------------------------------------------------------------
 	//Function: Renders the Task List//
 	let renderTaskList = () => {
-		const taskList = getLocalStorage("taskList");
-		const activeTab = localStorage.getItem("active");
+		let taskList = getLocalStorage("taskList");
+		let activeTab = localStorage.getItem("active");
 		if (taskList.length > 0) {
 			//Removes the Content from the DOM Screen
 			deleteTasksFromDOM();
@@ -75,7 +73,22 @@ let todoApp = (() => {
 			upperTabs.forEach((element) => element.classList.remove("active"));
 			//Conditional Rendering for Tabs
 			if (activeTab === "all") {
-				renderAllTab(taskList);
+				//Highlights the "All" Tab
+				upperTabs[0].classList.add("active");
+				//All Tasks
+				renderTabContent(taskList);
+			} else if (activeTab === "incomplete") {
+				//Highlights the "Incomplete" Tab
+				upperTabs[1].classList.add("active");
+				//Incomplete Tasks
+				taskList = taskList.filter((task) => task.completed === false);
+				renderTabContent(taskList);
+			} else if (activeTab === "completed") {
+				//Highlights the "Complete" Tab
+				upperTabs[2].classList.add("active");
+				//Completed Tasks
+				taskList = taskList.filter((task) => task.completed === true);
+				renderTabContent(taskList);
 			}
 			//Displays the Number of Tasks Left in the DOM Screen
 			taskCount();
@@ -167,6 +180,26 @@ let todoApp = (() => {
 		//If the target is the "All-Tabs" button, then display the Content of the Tab
 		if (target.id === "all") {
 			const taskList = getLocalStorage("taskList");
+			if (taskList.length > 0) {
+				localStorage.setItem("active", target.id);
+				renderTaskList();
+				return;
+			}
+		}
+		//If the target is the "Incomplete-Tabs" button, then display the Content of the Tab
+		if (target.id === "incomplete") {
+			let taskList = getLocalStorage("taskList");
+			taskList = taskList.filter((task) => task.completed === false);
+			if (taskList.length > 0) {
+				localStorage.setItem("active", target.id);
+				renderTaskList();
+				return;
+			}
+		}
+		//If the target is the "Completed-Tabs" button, then display the Content of the Tab
+		if (target.id === "completed") {
+			let taskList = getLocalStorage("taskList");
+			taskList = taskList.filter((task) => task.completed === true);
 			if (taskList.length > 0) {
 				localStorage.setItem("active", target.id);
 				renderTaskList();
