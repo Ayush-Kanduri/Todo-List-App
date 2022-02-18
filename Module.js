@@ -56,18 +56,27 @@ let todoApp = (() => {
 		tabs.forEach((element) => element.remove());
 	};
 	//----------------------------------------------------------------
+	//Function: Renders the All Tab//
+	let renderAllTab = (taskList) => {
+		//Highlights the "All" Tab
+		upperTabs[0].classList.add("active");
+		//Adds the Content from the Local Storage Task List into the DOM Screen
+		taskList.forEach((task) => addTaskToDOM(task));
+	};
+	//----------------------------------------------------------------
 	//Function: Renders the Task List//
 	let renderTaskList = () => {
 		const taskList = getLocalStorage("taskList");
+		const activeTab = localStorage.getItem("active");
 		if (taskList.length > 0) {
-			//Un-Highlights all the Tabs
-			upperTabs.forEach((element) => element.classList.remove("active"));
-			//Highlights the "All" Tab
-			upperTabs[0].classList.add("active");
 			//Removes the Content from the DOM Screen
 			deleteTasksFromDOM();
-			//Adds the Content from the Local Storage Task List into the DOM Screen
-			taskList.forEach((task) => addTaskToDOM(task));
+			//Un-Highlights all the Tabs
+			upperTabs.forEach((element) => element.classList.remove("active"));
+			//Conditional Rendering for Tabs
+			if (activeTab === "all") {
+				renderAllTab(taskList);
+			}
 			//Displays the Number of Tasks Left in the DOM Screen
 			taskCount();
 			return;
@@ -142,6 +151,8 @@ let todoApp = (() => {
 			//Optional Chaining Operator
 			const taskTitle = inputTask?.value;
 			if (taskTitle === "") return;
+			//Sets All Tab as Active in Local Storage
+			localStorage.setItem("active", "all");
 			addTask(taskTitle);
 			inputTask.focus();
 			inputTask.value = "";
@@ -153,6 +164,28 @@ let todoApp = (() => {
 			taskCompletedToggle(ele.id);
 			return;
 		}
+		//If the target is the "All-Tabs" button, then display the Content of the Tab
+		if (target.id === "all") {
+			const taskList = getLocalStorage("taskList");
+			if (taskList.length > 0) {
+				localStorage.setItem("active", target.id);
+				renderTaskList();
+				return;
+			}
+		}
+		// //If the target is the "delete" button, then delete that task
+		// if (target.id === "delete") {
+		// 	// const ele = target.parentNode.nextElementSibling.querySelector("p");
+		// 	// ele.classList.toggle("line-through");
+		// 	// taskCompletedToggle(ele.id);
+		// 	console.log("delete");
+		// 	return;
+		// }
+		// //If the target is the "edit" button, then edit that task
+		// if (target.id === "delete") {
+		// 	console.log("delete");
+		// 	return;
+		// }
 	};
 	//----------------------------------------------------------------
 	//Function: Initializes the Todo List App//
