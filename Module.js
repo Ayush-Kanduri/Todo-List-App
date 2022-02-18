@@ -1,7 +1,6 @@
 //Revealing Module Pattern using IIFE Module Design Pattern.
 //----------------------------------------------------------------
 let todoApp = (() => {
-	let taskList = [];
 	const inputTask = document.getElementById("task");
 	const submitTask = document.getElementById("taskSubmit");
 	const upperTabs = document
@@ -19,23 +18,34 @@ let todoApp = (() => {
 	taskItemTemplate.style.display = "flex";
 	//----------------------------------------------------------------
 	//Function: Displays the Number of Tasks Left in the DOM Screen//
-	let taskCount = (taskList) => {
+	let taskCount = () => {
+		const taskList = getLocalStorage("taskList");
 		const count = taskList.filter((task) => task.completed === false).length;
 		lowerTabs[1].textContent = `${count} Tasks Left`;
 	};
 	//----------------------------------------------------------------
 	//Function: Adds the Task into the DOM Screen//
 	let addTaskToDOM = (task) => {
-		//Adds the Content to the DOM
 		taskItemTemplate.querySelector(".text p").textContent = task.taskTitle;
 		taskItemTemplate.querySelector(".text p").id = task.id;
+		//To maintain if the task is checked or not.
+		if (task.completed === true) {
+			taskItemTemplate
+				.querySelector(".text p")
+				.classList.add("line-through");
+		} else {
+			taskItemTemplate
+				.querySelector(".text p")
+				.classList.remove("line-through");
+		}
+		//Appends the node to the DOM
 		allTabContent.appendChild(taskItemTemplate);
 		//Clones the Task Item Template Node
 		taskItemTemplate = taskItemTemplate.cloneNode(true);
 	};
 	//----------------------------------------------------------------
 	//Function: Deletes the Tasks from the DOM Screen//
-	let deleteTasksFromDOM = (task) => {
+	let deleteTasksFromDOM = () => {
 		//Tabs Array containing all the Content from all the Tabs Combined in the DOM Screen
 		const tabs = [
 			...allTabContent.querySelectorAll("div.task"),
@@ -47,7 +57,8 @@ let todoApp = (() => {
 	};
 	//----------------------------------------------------------------
 	//Function: Renders the Task List//
-	let renderTaskList = (taskList) => {
+	let renderTaskList = () => {
+		const taskList = getLocalStorage("taskList");
 		if (taskList.length > 0) {
 			//Un-Highlights all the Tabs
 			upperTabs.forEach((element) => element.classList.remove("active"));
@@ -55,12 +66,10 @@ let todoApp = (() => {
 			upperTabs[0].classList.add("active");
 			//Removes the Content from the DOM Screen
 			deleteTasksFromDOM();
-			//Adds the Content from the Task List into the DOM Screen
-			taskList.forEach((task) => {
-				addTaskToDOM(task);
-			});
+			//Adds the Content from the Local Storage Task List into the DOM Screen
+			taskList.forEach((task) => addTaskToDOM(task));
 			//Displays the Number of Tasks Left in the DOM Screen
-			taskCount(taskList);
+			taskCount();
 			return;
 		} else {
 			upperTabs[0].classList.remove("active");
@@ -70,32 +79,47 @@ let todoApp = (() => {
 	};
 	//----------------------------------------------------------------
 	//Function: Adds the Task into the Task List//
-	let addTask = (task) => {
-		if (task) {
-			taskList.push(task);
-			renderTaskList(taskList);
+	let addTask = (taskTitle) => {
+		if (taskTitle) {
+			const data = getLocalStorage("taskList");
+			if (data) {
+				data.push(new Task(taskTitle));
+				setLocalStorage(data);
+			} else {
+				const taskList = [];
+				const task = new Task(taskTitle);
+				taskList.push(task);
+				setLocalStorage(taskList);
+			}
+			renderTaskList();
 			return;
 		}
 	};
 	//----------------------------------------------------------------
-	// //Function: Adds the TaskList into the Browser Local Storage//
-	// let localStorage = (taskList) => {
-	// 	if (task) {
-	// 		taskList.push(task);
-	// 		renderTaskList(taskList);
-	// 		return;
-	// 	}
-	// };
+	//Function: Adds the TaskList into the Browser Local Storage//
+	let setLocalStorage = (taskList) => {
+		if (taskList.length > 0) {
+			window.localStorage.setItem("taskList", JSON.stringify(taskList));
+			return;
+		}
+	};
+	//----------------------------------------------------------------
+	//Function: Fetches the TaskList from the Browser Local Storage//
+	let getLocalStorage = (taskList) => {
+		return JSON.parse(window.localStorage.getItem(taskList));
+	};
 	//----------------------------------------------------------------
 	//Function: Checks/Unchecks Off the Task & Marks it as Completed/Incomplete//
 	let taskCompletedToggle = (taskId) => {
+		const taskList = getLocalStorage("taskList");
 		taskList.forEach((task) => {
 			if (task.id === Number(taskId)) {
 				task.completed = !task.completed;
+				setLocalStorage(taskList);
+				renderTaskList();
 				return;
 			}
 		});
-		console.log(...taskList);
 	};
 	//----------------------------------------------------------------
 	//Function: Handles the KeyPress Events in the Todo List App//
@@ -112,23 +136,21 @@ let todoApp = (() => {
 	//----------------------------------------------------------------
 	//Function: Handles the Click Events in the Todo List App//
 	let handleClick = (event) => {
-		//Event.target is the element that was clicked
 		const target = event.target;
-		//If the target is the submit button, then add the task to the list
+		//If the target is the "submit" button, then add the task to the list
 		if (target.id === "taskSubmit") {
 			//Optional Chaining Operator
 			const taskTitle = inputTask?.value;
 			if (taskTitle === "") return;
-			let task = new Task(taskTitle);
-			addTask(task);
+			addTask(taskTitle);
 			inputTask.focus();
 			inputTask.value = "";
 		}
+		//If the target is the "check" button, then toggle the LineThrough Class
 		if (target.id === "check") {
-			const taskTitle =
-				target.parentNode.nextElementSibling.querySelector("p");
-			taskTitle.classList.toggle("line-through");
-			taskCompletedToggle(taskTitle.id);
+			const ele = target.parentNode.nextElementSibling.querySelector("p");
+			ele.classList.toggle("line-through");
+			taskCompletedToggle(ele.id);
 			return;
 		}
 	};
@@ -139,6 +161,11 @@ let todoApp = (() => {
 		document.addEventListener("click", handleClick);
 		//KeyPress Event Delegation
 		document.addEventListener("keyup", handleKeyPress);
+		//To Render the TaskList on the Screen, on every Window Load/Reload
+		window.onload = () => {
+			const data = getLocalStorage("taskList");
+			if (data) renderTaskList();
+		};
 	};
 	//----------------------------------------------------------------
 	return {
