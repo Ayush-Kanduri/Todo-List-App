@@ -36,6 +36,7 @@
 	.editModal table label#priority-label,
 	.editModal table label#repeat-label {
 		font-size: 0.8rem;
+		padding-left: 2%;
 		font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 	}
 }

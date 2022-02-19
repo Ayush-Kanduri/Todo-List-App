@@ -398,6 +398,7 @@ footer strong {
 	z-index: 6;
 	padding: 2%;
 	display: block;
+	overflow: hidden;
 }
 .editModal table {
 	width: 100%;
