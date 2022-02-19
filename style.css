@@ -366,10 +366,10 @@ div.taskBar > div.tabs:hover {
 footer {
 	background: transparent;
 	color: var(--text-color);
-	font-size: 12px;
+	font-size: 0.75rem;
 	text-align: center;
 	position: fixed;
-	padding: 7px;
+	padding: 1%;
 	bottom: 0;
 	left: 0;
 	right: 0;
