@@ -407,6 +407,7 @@ footer strong {
 	align-items: center;
 	padding: 5%;
 	border: 1px solid #ececec;
+	overflow: hidden;
 }
 .editModal table input#time,
 .editModal table input#date {
