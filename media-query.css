@@ -28,3 +28,14 @@
 		transition: all 0.5s ease;
 	}
 }
+/* --------------------------------390px-------------------------------- */
+@media only screen and (max-width: 500px) {
+	.editModal table label#text-label,
+	.editModal table label#textarea-label,
+	.editModal table label#date-label,
+	.editModal table label#priority-label,
+	.editModal table label#repeat-label {
+		font-size: 0.8rem;
+		font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	}
+}
