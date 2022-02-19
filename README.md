@@ -18,12 +18,11 @@ This project is a Todo List App using Vanilla JS.
 
 #
 > #### Checkout the Website [Web Application](https://ayush-kanduri.github.io/Todo-List-App/)
-> #### Checkout the Application Demo Video [YouTube](X)
+> #### Checkout the Application Demo Video [YouTube](https://youtu.be/VzWVvKZT5M8)
 #
 
 ## Screens
 <p align="left">
-<img height="200" width="400" src="https://user-images.githubusercontent.com/76626529/154794493-ca123eb3-5297-42e0-9f4c-f13b55f56deb.png">
 <img height="200" width="400" src="https://user-images.githubusercontent.com/76626529/154794497-95b4c730-bc5e-4b52-87cf-93821d28cd10.png">
 <img height="200" width="400" src="https://user-images.githubusercontent.com/76626529/154794499-c1ba66c7-831c-4eab-8aea-9e06952dc05c.png">
 <img height="200" width="400" src="https://user-images.githubusercontent.com/76626529/154794500-a18a15d1-c851-4afc-9f9d-a676debf758f.png">
