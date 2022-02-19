@@ -4,13 +4,10 @@ This project is a Todo List App using Vanilla JS.
 
 ## Tools Used
 <p align="left">
-<img height="200" width="200" src="https://hackr.io/tutorials/javascript/logo-javascript.svg?ver=1610114223">
-<img height="200" width="200" src="https://www.w3.org/html/logo/downloads/HTML5_Logo_256.png">
-</p>
-<p align="left">
-<img height="200" width="200" src="https://logodix.com/logo/470309.png">
-<img height="200" width="200" src="https://user-images.githubusercontent.com/76626529/135654695-ca008e4f-99c8-40fc-9b73-8573f03c2867.png">
-<img height="200" width="200" src="https://code.visualstudio.com/assets/apple-touch-icon.png">
+<img height="140" width="140" src="https://www.w3.org/html/logo/downloads/HTML5_Logo_256.png">
+<img height="140" width="140" src="https://logodix.com/logo/470309.png">
+<img height="140" width="140" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+<img height="140" width="140" src="https://code.visualstudio.com/assets/apple-touch-icon.png">
 </p>
 
 * Library: None
