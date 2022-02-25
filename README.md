@@ -18,7 +18,7 @@ This project is a Todo List App using Vanilla JS.
 
 #
 > #### Checkout the Website [Web Application](https://ayush-kanduri.github.io/Todo-List-App/)
-> #### Checkout the Application Demo Video [YouTube](https://youtu.be/VzWVvKZT5M8)
+> #### Checkout the Application Demo Video [YouTube](https://youtu.be/X9d2ROxwskE)
 #
 
 ## Screens
