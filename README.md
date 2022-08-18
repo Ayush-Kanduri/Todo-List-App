@@ -53,8 +53,8 @@ For any issues related to the project, raise an ISSUE in the respective Reposito
 > ## Checkout the Website [Web Application](https://ayush-kanduri.github.io/Todo-List-App)
 >
 > ## Checkout the Application Demo Video [YouTube](https://youtu.be/X9d2ROxwskE)
->
->  <br/>
+
+<br/>
 
 ## 💻 Screens
 
